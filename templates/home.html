@@ -1,111 +1,123 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Performance AI</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
 <body>
-    <div class="login">
-       <h1>Student Exam Performance Indicator</h1>
-   
-       <form action="/predictdata" method="post">
-        <h1>
-            <legend>Student Exam Performance Prediction</legend>
-        </h1>
-        <div class="mb-3">
-            <label class="form-label">Gender</label>
-            <select class="form-control" name="gender" placeholder="Enter you Gender" required>
-                <option class="placeholder" selected disabled value="">Select your Gender</option>
-                <option value="male">
-                    Male
-                </option>
-                <option value="female">
-                    Female
-                </option>
-            </select>
+
+    <nav class="navbar">
+        <div class="brand"><i class="fas fa-robot"></i> MindSpark AI</div>
+        <div class="links" style="color: #cbd5e1; font-size: 0.9rem;">
+            v1.0.0 &nbsp; | &nbsp;
+            <a href="https://github.com/Arpit2744" target="_blank" style="color: #cbd5e1; text-decoration: none; transition: color 0.3s;">
+            <i class="fab fa-github"></i> Arpit2744
+</a>
         </div>
-        <div class="mb-3">
-            <label class="form-label">Race or Ethnicity</label>
-            <select class="form-control" name="race_ethnicity" placeholder="Enter you ethnicity" required>
-                <option class="placeholder" selected disabled value="">Select Ethnicity</option>
-                <option value="group A">
-                    Group A
-                </option>
-                <option value="group B">
-                    Group B
-                </option>
-                <option value="group C">
-                    Group C
-                </option>
-                <option value="group D">
-                    Group D
-                </option>
-                <option value="group E">
-                    Group E
-                </option>
-            </select>
+    </nav>
+
+    <div class="container">
+        <div class="dashboard-card">
+            
+            <div class="dashboard-header">
+                <h1>Performance Predictor</h1>
+                <p>Enter student details below to generate an AI-powered score forecast.</p>
+            </div>
+
+            <form action="/predictdata" method="post">
+                <div class="form-grid">
+                    
+                    <div class="form-group">
+                        <label><i class="fas fa-venus-mars"></i> Gender</label>
+                        <select class="form-control" name="gender" required>
+                            <option value="" disabled selected>Select Gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label><i class="fas fa-globe"></i> Race/Ethnicity</label>
+                        <select class="form-control" name="race_ethnicity" required>
+                            <option value="" disabled selected>Select Group</option>
+                            <option value="group A">Group A</option>
+                            <option value="group B">Group B</option>
+                            <option value="group C">Group C</option>
+                            <option value="group D">Group D</option>
+                            <option value="group E">Group E</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label><i class="fas fa-graduation-cap"></i> Parental Education</label>
+                        <select class="form-control" name="parental_level_of_education" required>
+                            <option value="" disabled selected>Select Education</option>
+                            <option value="some high school">Some High School</option>
+                            <option value="high school">High School</option>
+                            <option value="some college">Some College</option>
+                            <option value="associate's degree">Associate's Degree</option>
+                            <option value="bachelor's degree">Bachelor's Degree</option>
+                            <option value="master's degree">Master's Degree</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label><i class="fas fa-utensils"></i> Lunch Type</label>
+                        <select class="form-control" name="lunch" required>
+                            <option value="" disabled selected>Select Option</option>
+                            <option value="standard">Standard</option>
+                            <option value="free/reduced">Free/Reduced</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label><i class="fas fa-book-reader"></i> Test Prep Course</label>
+                        <select class="form-control" name="test_preparation_course" required>
+                            <option value="" disabled selected>Select Status</option>
+                            <option value="none">None</option>
+                            <option value="completed">Completed</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label><i class="fas fa-pen-fancy"></i> Writing Score (0-100)</label>
+                        <input class="form-control" type="number" name="writing_score" min="0" max="100" placeholder="e.g. 72" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label><i class="fas fa-book-open"></i> Reading Score (0-100)</label>
+                        <input class="form-control" type="number" name="reading_score" min="0" max="100" placeholder="e.g. 68" required>
+                    </div>
+
+                    <div class="full-width">
+                        <button class="btn-predict" type="submit">
+                            Generate Prediction <i class="fas fa-magic"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
         </div>
-        <div class="mb-3">
-            <label class="form-label">Parental Level of Education</label>
-            <select class="form-control" name="parental_level_of_education"
-                placeholder="Enter you Parent Education" required>
-                <option class="placeholder" selected disabled value="">Select Parent Education</option>
-                <option value="associate's degree">
-                    associate's degree
-                </option>
-                <option value="bachelor's degree">
-                    bachelor's degree
-                </option>
-                <option value="high school">
-                    high school
-                </option>
-                <option value="master's degree">
-                    master's degree
-                </option>
-                <option value="some college">
-                    some college
-                </option>
-                <option value="some high school">
-                    some high school
-                </option>
-            </select>
+    </div>
+
+    {% if results is not none %}
+    <div class="modal-overlay" id="resultModal">
+        <div class="modal-content">
+            <h2 style="margin-bottom: 20px;">Prediction Complete</h2>
+            <div class="score-circle">
+                {{ results }}
+            </div>
+            <p style="color: #94a3b8;">Predicted Maths Score</p>
+            <button class="modal-btn" onclick="document.getElementById('resultModal').style.display='none'">Close</button>
         </div>
-        <div class="mb-3">
-            <label class="form-label">Lunch Type</label>
-            <select class="form-control" name="lunch" placeholder="Enter you Lunch" required>
-                <option class="placeholder" selected disabled value="">Select Lunch Type</option>
-                <option value="free/reduced">
-                    free/reduced
-                </option>
-                <option value="standard">
-                    standard
-                </option>
-            </select>
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Test preparation Course</label>
-            <select class="form-control" name="test_preparation_course" placeholder="Enter you Course"
-                required>
-                <option class="placeholder" selected disabled value="">Select Test_course</option>
-                <option value="none">
-                    None
-                </option>
-                <option value="completed">
-                    Completed
-                </option>
-            </select>
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Writing Score out of 100</label>
-            <input class="form-control" type="number" name="writing_score"
-                placeholder="Enter your Reading score" min='0' max='100' />
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Reading Score out of 100</label>
-            <input class="form-control" type="number" name="reading_score"
-                placeholder="Enter your Reading Score" min='0' max='100' />
-        </div>
-        <div class="mb-3">
-            <input class="btn btn-primary" type="submit" value="Predict your Maths Score" required />
-        </div>
-    </form>
-    <h2>
-       THE  prediction is {{results}}
-    </h2>
-   <body>
+    </div>
+    {% endif %}
+
+    <footer>
+        Designed by Arpit Singh | Powered by CatBoost & FastAPI
+    </footer>
+
+</body>
 </html>

@@ -11,13 +11,15 @@ from src.pipeline.predict_pipeline import CustomData, PredictPipeline
 
 app = FastAPI()
 
+app.mount("/static", StaticFiles(directory="static"), name="static")
+          
 # Setup templates directory
 templates = Jinja2Templates(directory="templates")
 
 # Route 1: Home Page (Landing)
 @app.get("/", response_class=HTMLResponse)
 async def index(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})
+    return templates.TemplateResponse("home.html", {"request": request, "results": None})
 
 # Route 2: Show the Prediction Form (GET)
 @app.get("/predictdata", response_class=HTMLResponse)
@@ -63,6 +65,5 @@ async def predict_datapoint(
         "home.html", 
         {"request": request, "results": round(results[0], 2)}
     )
-
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)
