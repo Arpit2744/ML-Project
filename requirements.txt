@@ -6,5 +6,9 @@ scikit-learn==1.5.2
 dill
 catboost
 xgboost
-fastapi[standard]
-#-e .
+
+# FastAPI & Server
+fastapi
+uvicorn[standard]
+python-multipart
+jinja2
