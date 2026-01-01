@@ -1,7 +1,3 @@
-### 📂 Part 1: The README.md File
-
-*Copy the code block below and create a file named `README.md` in your main project folder.*
-
 # 🚀 Student Performance Indicator (End-to-End ML Pipeline)
 
 A complete Machine Learning project that predicts student performance based on various parameters. This repository demonstrates the full lifecycle of an ML application, from data analysis to cloud deployment using Docker and CI/CD pipelines.
