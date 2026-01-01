@@ -9,10 +9,28 @@ A complete Machine Learning project that predicts student performance based on v
 * **Cloud Provider:** AWS (EC2, ECR)
 * **CI/CD:** GitHub Actions (Self-Hosted Runner)
 
+## 📂 Project Structure
+'''
+├── artifacts/          # Generated models (model.pkl) & datasets (train/test.csv)
+├── logs/               # Application execution logs
+├── notebook/           # Jupyter notebooks for EDA & model training
+├── src/                # Core application source code
+│   ├── components/     # Data ingestion, transformation, & training modules
+│   ├── pipeline/       # Training & Prediction pipelines
+│   ├── logger.py       # Custom logging setup
+│   └── exception.py    # Custom exception handling
+├── static/             # CSS and styling files
+├── templates/          # HTML templates for the UI
+├── app.py              # Application entry point (FastAPI)
+├── Dockerfile          # Docker configuration
+├── requirements.txt    # Python dependencies
+└── setup.py            # Project packaging setup
+'''
+
 ## 📊 Features
 * **Data Ingestion & Transformation:** Automated pipelines to handle data processing.
-* **Model Training & Predict_pipeline:** Regression models trained to predict student scores.
-* **Web Interface:** Flask-based UI for user inputs.
+* **Model Training & Prediction pipeline:** Regression models trained to predict student scores.
+* **Web Interface:** Web UI for user inputs (built with FastAPI/Jinja2).
 * **Automated Deployment:** Fully automated CI/CD pipeline triggering on every push.
 
 ## ⚙️ How to Run Locally
@@ -86,5 +104,3 @@ Building this wasn't just about coding; it was about engineering. Here are the r
 ## 📜 License
 
 This project is open-source and available under the MIT License.
-
-```
