@@ -10,7 +10,7 @@ A complete Machine Learning project that predicts student performance based on v
 * **CI/CD:** GitHub Actions (Self-Hosted Runner)
 
 ## 📂 Project Structure
-'''
+```text
 ├── artifacts/          # Generated models (model.pkl) & datasets (train/test.csv)
 ├── logs/               # Application execution logs
 ├── notebook/           # Jupyter notebooks for EDA & model training
@@ -25,7 +25,6 @@ A complete Machine Learning project that predicts student performance based on v
 ├── Dockerfile          # Docker configuration
 ├── requirements.txt    # Python dependencies
 └── setup.py            # Project packaging setup
-'''
 
 ## 📊 Features
 * **Data Ingestion & Transformation:** Automated pipelines to handle data processing.
