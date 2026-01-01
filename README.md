@@ -25,7 +25,7 @@ A complete Machine Learning project that predicts student performance based on v
 ├── Dockerfile          # Docker configuration
 ├── requirements.txt    # Python dependencies
 └── setup.py            # Project packaging setup
-
+```
 ## 📊 Features
 * **Data Ingestion & Transformation:** Automated pipelines to handle data processing.
 * **Model Training & Prediction pipeline:** Regression models trained to predict student scores.
